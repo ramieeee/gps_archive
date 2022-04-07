@@ -5,7 +5,7 @@ function WelcomeText() {
             Welcome to
         </h1>
         <h1 className='commArea'>
-            GPS archive basement
+            GPS Archive Basement
         </h1>
     </div>
     );

@@ -1,10 +1,23 @@
+import axios from "axios";
+
+
+
 function LoginButton() {
     const handleClick = () => {
-        console.log('hello');
-    }
+        axios.post("/login", {
+                "username": "test",
+                "password": "1234"
+        })
+        .then(function(response) {
+            console.log(response);
+        }).catch(function(error) {
+            console.log('**ERROR**:' + error.response.data);
+        });
+    };
+
     return(
-        <input type="submit" value="로그인" className="submitButton" onClick={handleClick}/>
-    )
+      <input type="button" className="submitButton" value="로그인" onClick={handleClick}/>
+    );
 }
 
 export default LoginButton;
