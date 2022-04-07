@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import LoginButton from "./LoginButton";
+import LoginField from "./LoginField";
+import PasswordField from "./PasswordField";
+import WelcomeText from "./WelcomeText";
+import './styles.css';
 
 function App() {
+  const handleClick = () => {
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <WelcomeText/>
+        <form className='loginForm'>
+          <LoginField/>
+          <PasswordField/>
+          <LoginButton onClick={handleClick}/>
+        </form>
+      </div>
   );
 }
 
