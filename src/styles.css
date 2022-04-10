@@ -7,6 +7,9 @@
     margin: 0;
     /* background-color: #1BBC9B; */
     background-color: skyblue;
+    /* background-image: url("https://cdn.ihanwoo.kr/news/photo/201903/460_843_470.jpg"); */
+    background-size: 110%;
+    background-repeat: no-repeat;
   }
 
   .welcome {

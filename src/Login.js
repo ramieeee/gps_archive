@@ -17,20 +17,21 @@ function Login() {
                 "password": userPw
         })
         .then(function(response) {
-            // when successful
             setTocken(response.headers.authorization)
             console.log(tocken);
-            
-            axios.get("/api/card/list", tocken)
-            .then(function(response) {
-                console.log(response);
-            }).catch(function(error) {
-                console.log('**ERROR**:' + error.response.data);
-            });
-
         }).catch(function(error) {
-            console.log('**ERROR:' + error.response + '**');
+            console.log('**error at post request** -> ' + error.response)
         });
+
+        axios.get("/api/card/list", {
+            headers: {
+                Authorization: tocken}
+            })
+        .then(function(response) {
+            console.log(response);
+        }).catch(function(error) {
+            console.log('**ERROR at get request**:' + error.response)
+        })
     };
 
     return(
