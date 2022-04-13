@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 function Board() {
+    const navigate = useNavigate();
     const [cardList, setCardList] = useState("");
     const token = sessionStorage.getItem('Token');
     
@@ -46,14 +48,25 @@ function Board() {
         )
     }
 
+    function handleLogOut() {
+        navigate("/")
+    }
+
     useEffect(() => {
         getCardList();
     }, []);
    
     return(
+        <>
+        <div>
+            <button onClick={handleLogOut}>
+                Logout
+            </button>
+        </div>
         <div>
             <LoadCardList items={cardList}/>
         </div>
+        </>
     )
 }
 
