@@ -4,12 +4,12 @@
   }
   
   body {
-    margin: 0;
-    /* background-color: #1BBC9B; */
     background-color: skyblue;
     background-image: url("https://cdn.ihanwoo.kr/news/photo/201903/460_843_470.jpg");
-    background-size: 110%;
-    background-repeat: no-repeat;
+    /* background-image: url("https://mblogthumb-phinf.pstatic.net/20161018_168/moon150714_1476756044028Q6IrY_JPEG/%BA%B8%B3%EB%BA%B8%B3%EB_ppt_%B9%E8%B0%E6%C8%AD%B8%E9_%B4%D9%BE%E7%C7%CF%B0%D4_%C1%D8%BA%F1%C7%DF%BE%EE_%286%29.jpg?type=w800"); */
+    background-size: 100%;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
   }
 
   .welcome {

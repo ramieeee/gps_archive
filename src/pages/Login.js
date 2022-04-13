@@ -37,26 +37,18 @@ function Login() {
                 "password": userPw
         })
         .then(function(response) {
-            console.log('**response is:'+response.headers)
+            console.log('**response is:'+response.status)
             setUserToken(response.headers.authorization)
             sessionStorage.setItem('Token', userToken)
-            if (userToken) {
+            if (userToken && response.status === 200) {
                 console.log('login successful');
                 console.log("usertoken=>"+userToken);
+                navigate("/api/card/list")
             }
-            navigate("/api/card/list")
         }).catch(function(error) {
             console.log('**error at post request** -> ' + error)
         });
-        // axios.get("/api/card/list", {
-        //     headers: {
-        //         Authorization: userToken}
-        //     })
-        // .then(function(response) {
-        //     console.log(response);
-        // }).catch(function(error) {
-        //     console.log('**ERROR at get request**:' + error.response)
-        // })
+        
     };
 
     return(
