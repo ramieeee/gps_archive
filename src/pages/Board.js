@@ -10,15 +10,16 @@ function Board() {
     const token = sessionStorage.getItem('Token');
     
     const getCardList = async () => {
-        const body = await axios.get("/api/card/list", {
+        await axios.get("/api/card/list", {
                 headers: {
                     Authorization: token}
                 })
                 .then(function(response) {
                     setCardList(response.data);
                 }).catch(function(error) {
-                    console.log('**ERROR at GET request** => ' + error.response)
+                    console.log('**ERROR at GET request**')
                     console.log(error);
+                    navigate("/")
                 })
     }
 
@@ -49,6 +50,7 @@ function Board() {
     }
 
     function handleLogOut() {
+        sessionStorage.removeItem('Token');
         navigate("/")
     }
 

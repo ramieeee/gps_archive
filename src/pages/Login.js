@@ -8,7 +8,7 @@ function Login() {
 
     const [userId, setUserId] = useState("");
     const [userPw, setUserPw] = useState("");
-    const [userToken, setUserToken] = useState("");
+    let userToken = "";
 
     const eventChange = (event) => {
         setUserId(event.target.value);
@@ -17,18 +17,17 @@ function Login() {
         // console.log(userPw);
     }
 
-    const handleClick = () => {
-        axios.post("/login", {
+    // post request
+    const handleClick = async () => {
+        await axios.post("/login", {
                 "username": userId,
                 "password": userPw
         })
         .then(function(response) {
-            console.log('**response is:'+response.status)
-            setUserToken(response.headers.authorization)
+            userToken = response.headers.authorization;
             sessionStorage.setItem('Token', userToken)
+
             if (userToken && response.status === 200) {
-                console.log('login successful');
-                console.log("usertoken=>"+userToken);
                 navigate("/api/card/list")
             }
         }).catch(function(error) {
