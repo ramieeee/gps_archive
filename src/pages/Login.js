@@ -3,20 +3,6 @@ import axios from "axios";
 import WelcomeText from "../WelcomeText";
 import { useNavigate } from 'react-router';
 
-// axios.post(url , formData)
-// .then(res => {
-//    if (res.status === 200)
-//      toast.success("Success!");
-
-//    history.push('/login')
-           
-//    } )
-// .catch(err => {
-//    console.log(err);
-           
-// });
-
-
 function Login() {
     const navigate = useNavigate();
 
@@ -48,13 +34,18 @@ function Login() {
         }).catch(function(error) {
             console.log('**error at post request** -> ' + error)
         });
-        
     };
+
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+            handleClick();
+        }
+    }
 
     return(
         <div>
             <WelcomeText />
-            <form className='loginForm'>
+            <form className='loginForm' onKeyDown={handleEnter}>
                 <input type="text" onKeyUp={eventChange}  name="id" className='inputField' placeholder="ID" required="required"/>
                 <input type="password" onKeyUp={eventChange}name="pw" className='inputField' placeholder="PW" required="required" autoComplete="off"/>
                 <input type="button" className="submitButton" value="로그인" onClick={handleClick}/>

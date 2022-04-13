@@ -21,22 +21,22 @@ function Board() {
     }
 
     function CardListItem({ item }) {
-        const { card_id, card_content, card_create_date, card_update_date, card_write } = item;
+        const { card_id, card_content, card_create_date, card_update_date, card_writer } = item;
 
         return (
-            <div>
-                <div>{card_id}</div>
-                <div>{card_content}</div>
-                <div>{card_create_date}</div>
-                <div>{card_update_date}</div>
-                <div>{card_write}</div>
+            <div className='cardListDiv'>
+                <div className="divContent">{card_id}</div>
+                <div className="divContent">{card_content}</div>
+                <div className="divContent">{card_create_date}</div>
+                <div className="divContent">{card_update_date}</div>
+                <div className="divContent">{card_writer}</div>
             </div>
         );
     }
 
     function LoadCardList({ items }) {
         return (
-            <ul>
+            <ul id="ulCard">
                 {items && items.map((item) => (
                     <li key={item.card_id}>
                       <CardListItem item={item} />
